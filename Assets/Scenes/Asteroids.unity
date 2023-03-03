@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 191697885}
   - component: {fileID: 191697884}
-  m_Layer: 0
-  m_Name: Baundary
+  m_Layer: 9
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,8 +424,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1374637402}
   - component: {fileID: 1374637401}
-  m_Layer: 0
-  m_Name: Baundary
+  m_Layer: 9
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,6 +472,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1614916288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614916290}
+  - component: {fileID: 1614916289}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1614916289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614916288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3313be3b7e5142b43b0ce6e54fa1af9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawtRate: 2
+  _spawnAmount: 1
+  _asteroidPrefab: {fileID: 85027702705338163, guid: a8b1d043d98820e4a83f3b44e5c8407a, type: 3}
+  _spawnDistance: 15
+  _trajectoryVariance: 15
+--- !u!4 &1614916290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614916288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731875394
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +531,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1731875396}
   - component: {fileID: 1731875395}
-  m_Layer: 0
-  m_Name: Baundary
+  m_Layer: 9
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,8 +589,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2147259702}
   - component: {fileID: 2147259701}
-  m_Layer: 0
-  m_Name: Baundary
+  m_Layer: 9
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
