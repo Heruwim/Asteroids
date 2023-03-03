@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _thrustSpeed = 1.0f;
     [SerializeField] private float _turnSpeed = 1.0f;
 
+    [SerializeField] private Bullet _buletPrefab;
+
     private Rigidbody2D _rigidbody;
 
     private bool _trusting;
@@ -28,18 +30,29 @@ public class Player : MonoBehaviour
             _turnDirection = -1.0f;
         }
         else { _turnDirection = 0.0f; }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
     private void FixedUpdate()
     {
         if (_trusting)
         {
-            _rigidbody.AddForce(this.transform.up * _thrustSpeed);
+            _rigidbody.AddForce(this.transform.up * this._thrustSpeed);
         }
 
         if(_turnDirection != 0)
         {
-            _rigidbody.AddTorque(_turnDirection * _turnSpeed);
+            _rigidbody.AddTorque(_turnDirection * this._turnSpeed);
         }
+    }
+
+    private void Shoot()
+    {
+        Bullet bullet = Instantiate(this._buletPrefab, this.transform.position, this.transform.rotation);
+        bullet.Project(this.transform.up);
     }
 }
