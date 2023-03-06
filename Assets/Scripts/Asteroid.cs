@@ -6,7 +6,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _maxLifeTime = 30f;
     
-    public float size = 1f;
+    public float size = 1.0f;
     public float minSize = 0.5f;
     public float maxSize = 1.5f;
 
@@ -31,5 +31,29 @@ public class Asteroid : MonoBehaviour
         _rigidbody.AddForce(derection * _speed);
 
         Destroy(gameObject, _maxLifeTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            if((size * 0.5f) >= minSize)
+            {
+                CreateSplit();
+                CreateSplit();
+            }
+            FindObjectOfType<GameManager>().AsteroidDestroyed(this);
+            Destroy(gameObject);
+        } 
+    }
+
+    private void CreateSplit()
+    {
+        Vector2 position = this.transform.position;
+        position += Random.insideUnitCircle * 0.5f;
+
+        Asteroid half = Instantiate(this, position, this.transform.rotation);
+        half.size = this.size * 0.5f;
+        half.SetTrajectory(Random.insideUnitCircle.normalized * _speed);
     }
 }

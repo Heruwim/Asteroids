@@ -17,6 +17,11 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
     private void Update()
     {
         _trusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
@@ -54,5 +59,17 @@ public class Player : MonoBehaviour
     {
         Bullet bullet = Instantiate(this._buletPrefab, this.transform.position, this.transform.rotation);
         bullet.Project(this.transform.up);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.rotation = 0f;
+            gameObject.SetActive(false);
+
+            FindObjectOfType<GameManager>().PlayerDied();
+        }
     }
 }
